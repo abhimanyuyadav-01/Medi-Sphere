@@ -1,0 +1,87 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0288d1;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+#searchBar {
+    margin-top: 10px;
+    padding: 10px;
+    width: 80%;
+    font-size: 1em;
+}
+
+#cart-summary {
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+.medicine-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.medicine {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.medicine img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.medicine h3 {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+.medicine p {
+    color: #555;
+}
+
+.medicine .price {
+    font-weight: bold;
+}
+
+.medicine button {
+    background-color: #0288d1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.medicine button:hover {
+    background-color: #0277bd;
+}
+
+footer {
+    background-color: #0288d1;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.5em;
+}

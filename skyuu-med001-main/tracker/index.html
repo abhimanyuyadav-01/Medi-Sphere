@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Health Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Health Tracker</h1>
+            <p>Track your health data daily and visualize your progress</p>
+        </header>
+
+        <section class="tracker">
+            <h2>Log Your Health Data</h2>
+
+            <!-- Heart Rate Slider -->
+            <label for="heartRate">Heart Rate (bpm)</label>
+            <div class="slider-container">
+                <input type="range" id="heartRateSlider" min="50" max="180" value="70" class="slider" oninput="updateValue('heartRateValue', this.value, 'heartRateFace')">
+                <span id="heartRateValue" class="slider-value">70</span> bpm
+                <span id="heartRateFace" class="emoji-face">😊</span> <!-- Emoji for Heart Rate -->
+            </div>
+
+            <!-- Steps Slider -->
+            <label for="steps">Steps Walked</label>
+            <div class="slider-container">
+                <input type="range" id="stepsSlider" min="0" max="15000" value="5000" class="slider" oninput="updateValue('stepsValue', this.value, 'stepsFace')">
+                <span id="stepsValue" class="slider-value">5000</span> steps
+                <span id="stepsFace" class="emoji-face">😊</span> <!-- Emoji for Steps -->
+            </div>
+
+            <!-- Sleep Hours Slider -->
+            <label for="sleep">Sleep Hours</label>
+            <div class="slider-container">
+                <input type="range" id="sleepSlider" min="0" max="12" value="7" class="slider" oninput="updateValue('sleepValue', this.value, 'sleepFace')">
+                <span id="sleepValue" class="slider-value">7</span> hours
+                <span id="sleepFace" class="emoji-face">😊</span> <!-- Emoji for Sleep -->
+            </div>
+
+            <button type="button" onclick="trackHealthData()">Track Data</button>
+
+            <!-- Animated progress bars -->
+            <div class="progress-container">
+                <h3>Heart Rate Progress</h3>
+                <div class="progress-bar">
+                    <div id="heartRateBar" class="progress-bar-fill"></div>
+                </div>
+
+                <h3>Steps Progress</h3>
+                <div class="progress-bar">
+                    <div id="stepsBar" class="progress-bar-fill"></div>
+                </div>
+
+                <h3>Sleep Progress</h3>
+                <div class="progress-bar">
+                    <div id="sleepBar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div id="result"></div>
+        </section>
+
+        <!-- Chart section for weekly progress -->
+        <section class="chart-section">
+            <h2>Weekly Progress</h2>
+            <canvas id="weeklyChart" width="400" height="200"></canvas>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

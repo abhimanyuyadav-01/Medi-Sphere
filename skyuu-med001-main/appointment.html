@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  
+    <title>consultation</title>
+  </head>
+  
+  <body class="container bg-light">
+    <!-- Start Header form -->
+    <div class="text-center pt-5">
+      <!-- <img src="https://i.ibb.co/8cDgdFX/Logo.png" alt="network-logo" width="72" height="72" /> -->
+      <h2>CONSULTATION BOOKING</h2>
+      <p>
+        Please Fill the Form Below to  help us to know the Details about the Appointment.
+      </p>
+    </div>
+    <!-- End Header form -->
+  
+    <!-- Start Card -->
+    <div class="card">
+      <!-- Start Card Body -->
+      <div class="card-body">
+        <!-- Start Form -->
+        <form id="bookingForm" action="online.php" method="post" class="needs-validation" novalidate autocomplete="off">
+          
+  
+          
+          <div class="form-group">
+             <label for="Address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" required />
+            
+          </div> 
+          
+  
+          <!-- Start Input Telephone -->
+          <div class="form-group">
+            <label for="inputPhone">Phone</label>
+            <input type="tel" class="form-control" id="inputPhone" name="phone" placeholder="07xxxxxxx" pattern="\d{3}\d{3}\d{4}" required />
+           
+          </div>
+        
+  
+          <!-- Start Input Date , Start Time and End Time -->
+          <div class="form-row">
+            <!-- Start Input Date -->
+            <div class="form-group col-md-6">
+              <label for="inputDate">Date</label>
+              <input type="date" class="form-control" id="inputDate" name="date" required />
+              <small class="form-text text-muted">Please choose date and time for meeting.</small>
+            </div>
+            <!-- End Input Date -->
+  
+            <!-- Start Input Start Time -->
+            <div class="form-group col-md-6">
+              <label>Start Time</label>
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <select class="form-control mr-1" id="inputStartTimeHour" name="time" required>
+                  <option value="" disabled selected>Hour</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="15">16</option>
+                  <option value="15">17</option>
+                  <option value="15">18</option>
+                  <option value="15">19</option>
+                  <option value="15">20</option>
+                  <option value="15">21</option>
+                  <option value="15">22</option>
+                </select>
+                <div class="pl-1 pr-2">:</div>
+                <select class="form-control" id="inputStartTimeMinute" name="minutes" required>
+                  <option value="" disabled selected>Min</option>
+                  <option value="00">00</option>
+                  <option value="00">30</option>
+                </select>
+              </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="form-group col-md-12">
+        <label>Appointment Type</label>
+        <div class="d-flex flex-row justify-content-between align-items-center">
+          <select class="form-control mr-1" id="inputStartTimeHour" name="consultation" required>
+            <option value="" disabled selected>Choose</option>
+            <option value="virtual">Virtual</option>
+            <option value="physical">Physical</option>
+           
+            
+          </select>
+          </div>
+          </div>
+
+    <div class="form-group col-md-12">
+        <label>Choose Doctor</label>
+        <div class="d-flex flex-row justify-content-between align-items-center">
+          <select class="form-control mr-1" id="inputStartTimeHour" name="specialist" required>
+            <option value="" disabled selected>Choose</option>
+            <option value="dentists">Dentists</option>
+            <option value="allergist">Allergist</option>
+            <option value="dermatologist">Dermatologist</option>
+            <option value="gynecologist">Gynecologist</option>
+            <option value="fertility">Fertility Specialist</option>
+            <option value="obstetrician">Obstetrician</option>
+            <option value="oncologist">Oncologist</option>
+            <option value="ophthalmologist">Ophthalmologist</option>
+            
+          </select>
+          </div>
+          <div class="form-group col-md-12">
+            <label></label>
+            <div class="d-flex flex-row justify-content-between align-items-center">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" name="file" id="inputGroupFile01"
+      aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Upload anything You want Doctor to see</label>
+  </div>
+</div>
+</div>
+</div>
+</div>
+        
+          <hr />
+  
+        
+          <button class="btn btn-primary btn-block col-lg-2" type="submit">Schedule appointment</button>
+          <!-- End Submit Button -->
+        </form>
+        <!-- End Form -->
+      </div>
+      <!-- End Card Body -->
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+    <!-- Start Scritp for Form -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+    <!-- End Scritp for Form -->
+  
+  </body>
