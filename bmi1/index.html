@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional BMI Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bmi-container">
+    <h1>BMI Calculator</h1>
+    <p>Find out your BMI and what it means for your health.</p>
+
+    <!-- Height Input -->
+    <div class="slider-group">
+      <label for="heightSlider">Height (cm):</label>
+      <input type="range" id="heightSlider" min="100" max="250" value="170" oninput="updateHeight()">
+      <span id="heightValue">170 cm</span>
+    </div>
+
+    <!-- Weight Input -->
+    <div class="slider-group">
+      <label for="weightSlider">Weight (kg):</label>
+      <input type="range" id="weightSlider" min="30" max="200" value="70" oninput="updateWeight()">
+      <span id="weightValue">70 kg</span>
+    </div>
+
+    <!-- BMI Display -->
+    <div class="bmi-display">
+      <p>Your BMI: <span id="bmiResult">--</span></p>
+      <p>Category: <span id="bmiCategory">--</span> <span id="emoji">🙂</span></p>
+    </div>
+
+    <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

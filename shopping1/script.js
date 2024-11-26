@@ -1,88 +1,96 @@
-// script.js
-
-// Sample medicines data
-const medicines = [
-    { name: 'Paracetamol', image: 'paracetamol.png', price: 30, description: 'Pain relief and fever reducer', usage: 'Take 1 tablet every 4-6 hours as needed. Do not exceed 8 tablets in 24 hours.' },
-    { name: 'Aspirin', image: 'aspirin.png', price: 25, description: 'Used to reduce fever and relieve mild to moderate pain.', usage: 'Take 1-2 tablets every 4-6 hours. Do not exceed 4g in a day.' },
-    { name: 'Amoxicillin', image: 'amoxicillin.png', price: 55, description: 'Antibiotic for bacterial infections.', usage: 'Take 500mg every 8 hours for 7-10 days, as prescribed by a doctor.' },
-    { name: 'Ibuprofen', image: 'ibuprofen.png', price: 40, description: 'Pain reliever and anti-inflammatory drug.', usage: 'Take 400-600mg every 6 hours as needed for pain. Do not exceed 2400mg/day.' },
-    { name: 'Cough Syrup', image: 'cough_syrup.png', price: 80, description: 'Provides relief from cough and throat irritation.', usage: 'Take 2 teaspoons every 4-6 hours. Do not exceed 8 teaspoons in 24 hours.' },
-    { name: 'Cetirizine', image: 'cetirizine.png', price: 20, description: 'Antihistamine used for allergies.', usage: 'Take 1 tablet once daily. Do not exceed the recommended dosage.' },
-    { name: 'Vitamin C', image: 'vitamin_c.png', price: 50, description: 'Boosts immunity and fights infections.', usage: 'Take 1 tablet daily after a meal.' },
-    { name: 'Antacid', image: 'antacid.png', price: 15, description: 'Neutralizes stomach acid for relief from heartburn.', usage: 'Take 1-2 tablets after meals or as needed for heartburn relief.' },
-    { name: 'Insulin', image: 'insulin.png', price: 1500, description: 'Used to manage blood sugar levels in diabetes.', usage: 'Administer subcutaneously as directed by your healthcare provider.' },
-    { name: 'Antibiotic Cream', image: 'antibiotic_cream.png', price: 45, description: 'Treats skin infections and promotes healing.', usage: 'Apply a thin layer on the affected area 2-3 times a day.' },
-    { name: 'Eye Drops', image: 'eye_drops.png', price: 35, description: 'Relieves eye irritation and dryness.', usage: 'Instill 1-2 drops in the affected eye(s) 3-4 times a day.' },
-    { name: 'Cough Lozenges', image: 'lozenges.png', price: 10, description: 'Provides relief from sore throat and cough.', usage: 'Dissolve 1 lozenge in the mouth every 2-3 hours.' },
-    { name: 'Multivitamin', image: 'multivitamin.png', price: 150, description: 'Daily multivitamin for overall health.', usage: 'Take 1 tablet daily after a meal.' },
-    { name: 'Antifungal Cream', image: 'antifungal_cream.png', price: 60, description: 'Used to treat fungal infections.', usage: 'Apply to the affected area twice daily for 2-4 weeks.' },
-    { name: 'Calcium Tablets', image: 'calcium_tablets.png', price: 120, description: 'Helps strengthen bones and teeth.', usage: 'Take 1 tablet daily with a meal.' },
-    { name: 'Cold and Flu Tablets', image: 'flu_tablets.png', price: 40, description: 'Relieves symptoms of cold and flu.', usage: 'Take 1-2 tablets every 6 hours as needed. Do not exceed 8 tablets in 24 hours.' },
-    { name: 'Pain Balm', image: 'pain_balm.png', price: 35, description: 'Relieves joint and muscle pain.', usage: 'Massage a small amount on the affected area 2-3 times daily.' },
-    { name: 'Antibiotic Syrup', image: 'antibiotic_syrup.png', price: 90, description: 'Used for treating bacterial infections in children.', usage: 'Give as per the doctor’s prescription, usually 5ml 3 times a day.' },
-    { name: 'Digestive Enzyme', image: 'digestive_enzyme.png', price: 70, description: 'Improves digestion and relieves bloating.', usage: 'Take 1 tablet after meals, 3 times a day.' },
-    { name: 'Nasal Spray', image: 'nasal_spray.png', price: 60, description: 'Provides relief from nasal congestion.', usage: 'Spray 1-2 times in each nostril as needed.' }
-];
-
-// Cart and total price initialization
-let cart = [];
-let totalPrice = 0;
-
-// Load medicines dynamically
-const medicineContainer = document.getElementById('medicineContainer');
-
-function loadMedicines() {
-    medicines.forEach((medicine, index) => {
-        const medicineDiv = document.createElement('div');
-        medicineDiv.classList.add('medicine');
-        
-        medicineDiv.innerHTML = `
-            <img src="${medicine.image}" alt="${medicine.name}">
-            <h3>${medicine.name}</h3>
-            <p>${medicine.description}</p>
-            <p class="price">Price: ₹${medicine.price}</p>
-            <p><strong>How to Use:</strong> ${medicine.usage}</p>
-            <button onclick="addToCart(${index})">Add to Cart</button>
-        `;
-        
-        medicineContainer.appendChild(medicineDiv);
+const products = [
+    { id: 1, name: 'Paracetamol', price: 150 },
+    { id: 2, name: 'Ibuprofen', price: 100 },
+    { id: 3, name: 'Amoxicillin', price: 120 },
+    { id: 4, name: 'Cough Syrup', price: 180 },
+    { id: 5, name: 'Antiseptic Cream', price: 90 },
+    { id: 6, name: 'Vitamin C Tablets', price: 300 },
+    { id: 7, name: 'Antibiotic Ointment', price: 60 },
+    { id: 8, name: 'Pain Relief Spray', price: 90 },
+    { id: 9, name: 'Blood Pressure Medicine', price: 100 },
+    { id: 10, name: 'Diabetes Tablets', price: 120 },
+  ];
+  
+  let cart = [];
+  
+  // Load Products
+  const productGrid = document.getElementById('productGrid');
+  products.forEach((product) => {
+    const productCard = document.createElement('div');
+    productCard.className = 'product';
+    productCard.innerHTML = `
+      <h3>${product.name}</h3>
+      <span>$${product.price}</span>
+      <button onclick="addToCart(${product.id})">Add to Cart</button>
+    `;
+    productGrid.appendChild(productCard);
+  });
+  
+  // Add to Cart
+  function addToCart(productId) {
+    const product = products.find((p) => p.id === productId);
+    const cartItem = cart.find((item) => item.id === productId);
+    if (cartItem) {
+      cartItem.quantity++;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+    updateCart();
+  }
+  
+  // Remove from Cart
+  function removeFromCart(productId) {
+    cart = cart.filter((item) => item.id !== productId);
+    updateCart();
+  }
+  
+  // Update Cart
+  function updateCart() {
+    const cartTable = document.querySelector('#cartTable tbody');
+    const cartTotal = document.getElementById('cartTotal');
+    cartTable.innerHTML = '';
+    let total = 0;
+  
+    cart.forEach((item) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.quantity}</td>
+        <td>$${item.quantity * item.price}</td>
+        <td><button onclick="removeFromCart(${item.id})">Remove</button></td>
+      `;
+      cartTable.appendChild(row);
+      total += item.quantity * item.price;
     });
-}
-
-// Add to cart functionality
-function addToCart(index) {
-    const selectedMedicine = medicines[index];
-    cart.push(selectedMedicine);
-    updateCartSummary();
-}
-
-// Update cart summary and total price
-function updateCartSummary() {
-    const cartCount = document.getElementById('cart-count');
-    const totalPriceDisplay = document.getElementById('total-price');
-    const checkoutTotal = document.getElementById('checkout-total');
-    
-    totalPrice = cart.reduce((total, medicine) => total + medicine.price, 0);
-    cartCount.textContent = cart.length;
-    totalPriceDisplay.textContent = totalPrice;
-    checkoutTotal.textContent = totalPrice;
-}
-
-// Search functionality
-const searchBar = document.getElementById('searchBar');
-searchBar.addEventListener('input', function() {
-    const filter = searchBar.value.toLowerCase();
-    const medicinesList = document.querySelectorAll('.medicine');
-
-    medicinesList.forEach(medicine => {
-        const medicineName = medicine.querySelector('h3').textContent.toLowerCase();
-        if (medicineName.includes(filter)) {
-            medicine.style.display = '';
-        } else {
-            medicine.style.display = 'none';
-        }
-    });
-});
-
-// Initialize
-loadMedicines();
+  
+    cartTotal.textContent = total.toFixed(2);
+  }
+  
+  // Show Checkout Section
+  function showCheckout() {
+    document.getElementById('cartSection').style.display = 'none';
+    document.getElementById('checkoutSection').style.display = 'block';
+  }
+  
+  // Toggle Payment Details
+  function togglePaymentDetails() {
+    const paymentMethod = document.getElementById('paymentMethod').value;
+    document.getElementById('cardDetails').classList.remove('active');
+    document.getElementById('upiDetails').classList.remove('active');
+  
+    if (paymentMethod === 'card') {
+      document.getElementById('cardDetails').classList.add('active');
+    } else if (paymentMethod === 'upi') {
+      document.getElementById('upiDetails').classList.add('active');
+    }
+  }
+  
+  // Checkout Form Submit
+  document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Order placed successfully!');
+    cart = [];
+    updateCart();
+    location.reload();
+  });
+  

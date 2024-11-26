@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Skyui Medicine Store</h1>
+    <p>Your one-stop shop for all medical needs</p>
+  </header>
+
+  <!-- Products Section -->
+  <section class="products">
+    <h2>Our Medicines</h2>
+    <div class="product-grid" id="productGrid">
+      <!-- Dynamic Product Cards will be injected here by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Cart Section -->
+  <section class="cart" id="cartSection">
+    <h2>Your Cart</h2>
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic Cart Rows -->
+      </tbody>
+    </table>
+    <p class="cart-total">Total: Rs<span id="cartTotal">0.00</span></p>
+    <button class="checkout-btn" onclick="showCheckout()">Proceed to Checkout</button>
+  </section>
+
+  <!-- Checkout Section -->
+  <section class="checkout" id="checkoutSection" style="display: none;">
+    <h2>Checkout</h2>
+    <form class="checkout-form" id="checkoutForm">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" required>
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" rows="3" required></textarea>
+
+      <label for="paymentMethod">Payment Method</label>
+      <select id="paymentMethod" onchange="togglePaymentDetails()" required>
+        <option value="cod">Cash on Delivery</option>
+        <option value="card">Credit/Debit Card</option>
+        <option value="upi">UPI (PhonePe/Paytm)</option>
+      </select>
+
+      <!-- Card Details -->
+      <div class="card-details" id="cardDetails">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" placeholder="1234 5678 9101 1121">
+
+        <label for="expiryDate">Expiry Date</label>
+        <input type="text" id="expiryDate" placeholder="MM/YY">
+
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="123">
+      </div>
+
+      <!-- UPI Details -->
+      <div class="upi-details" id="upiDetails">
+        <label for="upiId">UPI ID</label>
+        <input type="text" id="upiId" placeholder="example@upi">
+      </div>
+
+      <button class="place-order-btn" type="submit">Place Order</button>
+    </form>
+  </section>
+  <footer>
+    <p>© 2024SkyuiMedicineShop | Designed with Love❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
